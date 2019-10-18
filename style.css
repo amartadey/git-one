@@ -1,3 +1,11 @@
-body { background: #1E1E1E; display: flex; flex-direction: column; text-align: center; justify-content: center; width: 100vw; height: 100vh;}
+body { background: #1E1E1E; display: flex; flex-direction: column; justify-content: center; width: 100vw; height: 100vh;}
 h3 { font-size: 20px; color: #fff; line-break: 22px;}
 h4 { font-size: 20px; color: #fff; line-break: 22px;}
+ul{     align-self: flex-end;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;}
+
+    li { list-style: none; }
+    a { color: #E5E510;text-transform: uppercase;}
