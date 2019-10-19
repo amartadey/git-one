@@ -9,3 +9,6 @@ ul{     align-self: flex-end;
 
     li { list-style: none; }
     a { color: #E5E510;text-transform: uppercase;}
+body { background: #1E1E1E; display: flex; align-items: center; justify-content: center;}
+h3 { font-size: 20px; color: #1E1E1E; line-break: 22px;}
+.container { background: #fff; padding: 30px 40px; width: 1000px; margin: 0 auto;;}
