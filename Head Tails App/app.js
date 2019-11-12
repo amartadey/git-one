@@ -65,9 +65,10 @@ function buttonClick(e){
     let userValue = e.target.innerText.toLowerCase();
     console.log(userValue);
     if(userValue=="heads"){
-        imgs[1].setAttribute('src', 'head.png');
+        setTimeout(() => {  imgs[1].setAttribute('src', 'head.png')  }, 300);
+        
     } else {
-        imgs[1].setAttribute('src', 'tail.png');
+       setTimeout(() => {  imgs[1].setAttribute('src', 'tail.png') }, 300);
     };
     let scoreOutput = document.querySelectorAll('h4');
     if ( value== userValue ) {
