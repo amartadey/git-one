@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Head Tail App</title>
+    <style>
+        .coin-container { display: flex; padding: 0; margin: 0;}
+        .coin-container .box    { padding: 30px; border:1px solid  #ccc; width: 150px; text-align: center;}
+        .coin-container .result.box { text-align: left;}
+        /* .coin-container .box img { } */
+        .coin-container .box img.transform {transition: all 3s ease-out; transform: rotateY(3600deg); }
+
+        h3 b{ padding: 10px 0; text-align: center; background: red; display: block; color: #fff; font-family: sans-serif;}
+
+    </style>
+</head>
+<body>
+    <div class="coin-container">
+        <div class="computer box">
+            <h2>Computer</h2>
+            <img src="head.png" alt="">
+        </div>
+        <div class="you box">
+            <h2>You</h2>
+            <img src="tail.png" alt="">
+        </div>
+        <div class="result box">
+            <h2>Results</h2>
+            <h4><span></span></h4>
+            <h4><span></span></h4>
+            <h3></h3>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
