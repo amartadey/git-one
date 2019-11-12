@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dice Game</title>
+    <style>
+        .dice-box  { display: flex; }
+        .dice-box .players { width: 200px; border: 1px solid #ccc; padding: 20px; }
+        .dice-box .players h2 {     font-size: 200px; line-height: 132px; padding: 0; margin: 0; text-align: center;}
+        button { outline: none; width: 500px; text-align: center; font-size: 25px; padding: 10px 0; border: none; text-transform: uppercase; border-radius: 60px; background: chocolate;}
+        button.active { opacity: 0.5; cursor:not-allowed; }
+    </style>
+
+</head>
+<body>
+    <h1>Roll the Dice ??</h1>
+    <div class="dice-box">
+        
+        <div class="players">
+            <h3>Player 1</h3>
+            <h2>&#9745;</h2>
+        </div>
+        <div class="players">
+            <h3>Player 2</h3>
+            <h2>&#9745;</h2>
+        </div>
+    </div>
+    <button>Roll</button>
+    <script src="app.js"></script>
+</body>
+</html>
