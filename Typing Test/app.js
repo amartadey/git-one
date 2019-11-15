@@ -2,6 +2,8 @@ let sentence = ['Old her object chatty regard vulgar missed.', 'Speaking throwin
 
 let text = document.querySelector('p');
 let textarea = document.querySelector('textarea');
+let clockValue = document.querySelector('h2');
+let clock;
 
 // let button = document.querySelector('button');
 
@@ -15,6 +17,7 @@ function randomSentence(){
 }
 
 function typingCheck(){
+    startClock();
     let startTime = Date.parse(new Date());
     let texts = document.querySelector('p');
     let userText = ""
@@ -25,7 +28,9 @@ function typingCheck(){
         // }
         userText = document.querySelector('textarea').value;
         console.log(userText.length);
-        let checkText = document.querySelector('p')
+        if (textarea.value.length>=1){
+            textarea.style.color = "#fff";
+        }
         if (userText.substring(0, (userText.length)) == (texts.innerText).substring(0, (userText.length)) && userText.length < texts.innerText.length){
            
             textarea.style.background = "green";
@@ -33,9 +38,26 @@ function typingCheck(){
             textarea.style.background = "red";
         } else if (userText.length >= texts.innerText.length){
             textarea.style.background = "purple";
+             clearInterval(clock);
         }
-        
-
     })
 }
+
+function startClock(){
+    let miliSec =0;
+    sec = 0;
+    clock = setInterval(() => {
+        miliSec +=1;
+        let seconds = Math.floor(miliSec / 100);
+        clockValue.innerHTML = seconds +":" + miliSec%100;
+        
+    }, 10);
+    
+}
+
+function stopClock(){
+
+}
+
+
 
