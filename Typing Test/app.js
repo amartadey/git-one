@@ -4,6 +4,7 @@ let text = document.querySelector('p');
 let textarea = document.querySelector('textarea');
 let clockValue = document.querySelector('h2');
 let clock;
+let button = document.getElementsByTagName('button')[0];
 
 // let button = document.querySelector('button');
 
@@ -17,6 +18,8 @@ function randomSentence(){
 }
 
 function typingCheck(){
+    button.innerText = "Start";
+    button.style.display = "none";
     startClock();
     let startTime = Date.parse(new Date());
     let texts = document.querySelector('p');
@@ -38,7 +41,7 @@ function typingCheck(){
             textarea.style.background = "red";
         } else if (userText.length >= texts.innerText.length){
             textarea.style.background = "purple";
-             clearInterval(clock);
+            checkSentence();
         }
     })
 }
@@ -55,9 +58,31 @@ function startClock(){
     
 }
 
-function stopClock(){
+function checkSentence(){
+    textarea.setAttribute('disabled','true');
+    clearInterval(clock);
+    let texts = document.querySelector('p').innerText;
+    let wrongs = 0;
+    let userText = document.querySelector('textarea').value;
+    for (i=1;i<=texts.length;i++){
+        if (texts.substring(0, i) != userText.substring(0, i)){
+            wrongs++;
+        }
+    }
+    let output = document.querySelector('h1');
+    let time = document.querySelector('h2').innerText;
+    output.innerText = `You wrote ${wrongs} wrongs in ${time} seconds`;
+    button.style.display = "inline-block";
 
 }
 
+button.addEventListener('click',(e)=>{
+    e.target.innerHTML = "Click inside the <span>textarea</span>";
+    textarea.removeAttribute('disabled');
+    textarea.value="";
+    textarea.style.background = "#fff";
+    textarea.style.color = "#000";
+    document.querySelector('h1').innerText = `Typing Test`;
+})
 
 
