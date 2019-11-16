@@ -6,8 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mover Block</title>
     <style>
-        body { position: relative; height: 100vh;}
-        #move { width: 100px; height: 100px; background: red; position: absolute; display: flex; flex-direction: column; color: #fff;font-family: sans-serif; align-items: center; justify-content: center;}
+        body { position: relative; height: 97vh;}
+        #move { z-index: 99; width: 100px; height: 100px; background: red; position: absolute; display: flex; flex-direction: column; color: #fff;font-family: sans-serif; align-items: center; justify-content: center; top: 25px;left: 25px;}
+        .box { position: absolute; width: 150px; height: 150px;border:2px solid darkblue;}
+        .box.a { top: 0; left: 0;}
+        .box.b { top: 0; right: 0;}
+        .box.c { bottom: 0; left: 0;}
+        .box.d { bottom: 0; right: 0;}
     </style>
 </head>
 <body>
@@ -17,6 +22,10 @@
         <p>test</p>
         <p>test</p>
     </div>
+    <div class="box a"></div>
+    <div class="box b"></div>
+    <div class="box c"></div>
+    <div class="box d"></div>
     <script src="app.js"></script>
 </body>
 </html>

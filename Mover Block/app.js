@@ -8,16 +8,18 @@ window.document.body.addEventListener('mousemove',(e)=>{
     let ps = moveBox.querySelectorAll('p');
     ps[0].innerHTML = "X : "+x;
     ps[1].innerHTML = "Y : "+y;
-    console.log(moveBox.offsetWidth);
+    // console.log(moveBox.offsetWidth);
+    // moveBox.style.top = (y - 10) + "px";
+    // moveBox.style.left = (x - 10) + "px";
     
 });
 moveBox.addEventListener('mouseenter', boxMove);
 
 function boxMove(){
-    window.document.body.addEventListener('mousemove',(e)=>{
-        e.target.style.background = "blue";
-        e.target.style.top = (x-50)+"px"
-        e.target.style.left = (y-50)+"px"
+    document.addEventListener('mousemove',(e)=>{
+        moveBox.style.background = "blue";
+        moveBox.style.top = (y-10)+"px";
+        moveBox.style.left = (x-10)+"px";
         
     });
 }
