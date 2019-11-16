@@ -86,3 +86,21 @@ button.addEventListener('click',(e)=>{
 })
 
 
+const url = "https://randomuser.me/api";
+
+const btn = document.querySelector('button');
+btn.addEventListener('click', getUsers);
+
+function getUsers() {
+    let temp = url + '?results=50';
+    fetch(temp)
+        .then(function (rep) {
+            return rep.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            document.querySelector('h3').textContent = data.value;
+        })
+}
+
+
