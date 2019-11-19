@@ -8,11 +8,12 @@
     <style>
         body { position: relative; height: 97vh;}
         #move { z-index: 99; width: 100px; height: 100px; background: red; position: absolute; display: flex; flex-direction: column; color: #fff;font-family: sans-serif; align-items: center; justify-content: center; top: 25px;left: 25px;}
-        .box { position: absolute; width: 150px; height: 150px;border:2px solid darkblue;}
+        .box { display: flex; align-items: center; justify-content: center; position: absolute; width: 150px; height: 150px;border:2px solid darkblue;}
         .box.a { top: 0; left: 0;}
         .box.b { top: 0; right: 0;}
         .box.c { bottom: 0; left: 0;}
         .box.d { bottom: 0; right: 0;}
+        .window { }
     </style>
 </head>
 <body>
@@ -22,10 +23,14 @@
         <p>test</p>
         <p>test</p>
     </div>
-    <div class="box a"></div>
-    <div class="box b"></div>
-    <div class="box c"></div>
-    <div class="box d"></div>
+    <div class="box a">Drop Here</div>
+    <div class="box b">Drop Here</div>
+    <div class="box c">Drop Here</div>
+    <div class="box d">Drop Here</div>
+    <div class="window">
+        <p></p>
+        <p></p>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
