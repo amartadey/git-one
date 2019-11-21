@@ -41,10 +41,10 @@ let c=canvas.getContext('2d');
 //     c.fill();
 // }
 
-let x = 200;
-let y = 200;
-let dx = 1;
-let dy = 4;
+let x = Math.random() * window.innerWidth;
+let y = Math.random() * window.innerHeight;
+let dx = 50*(Math.random()-0.5);
+let dy = 50*(Math.random() -0.5);
 let radius = 30;
 
 function animate() {
@@ -63,7 +63,7 @@ function animate() {
     
     x+=dx;
     y +=dy;
-    console.log(x);
+
 
   
 }
