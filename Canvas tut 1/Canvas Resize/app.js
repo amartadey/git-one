@@ -41,6 +41,18 @@ let c=canvas.getContext('2d');
 //     c.fill();
 // }
 
+function Circle(x,y){
+    this.x = x;
+    this.y = y;
+
+    this.draw = function(){
+        console.log("Test");
+    }
+}
+
+var circle = new Circle(200,200);
+circle.draw();
+
 let x = Math.random() * window.innerWidth;
 let y = Math.random() * window.innerHeight;
 let dx = 50*(Math.random()-0.5);
