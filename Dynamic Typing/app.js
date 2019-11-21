@@ -28,9 +28,10 @@ function endPlay(){
     let speed = Math.round((wordCount/totalTime)*60);
     console.log(speed);
     let finalMessage = `You typed at ${speed} words per minutes`;
-    if( str != message.innerText){
-        finalMessage +=`<br>There were some errors.`
-    }
+    // compareWords(message.innerText,str); 
+
+    finalMessage += `<br>${compareWords(message.innerText, str)}`;
+
     message.innerHTML = finalMessage;
 }
 
@@ -38,6 +39,18 @@ function wordCounter(strWords) {
     let response = strWords.split(" ").length;
     console.log(response);
     return response;
+}
+
+function compareWords(str1,str2){
+    let cnt = 0;
+    let word1 = str1.split(" ");
+    let word2 = str2.split(" ");
+    word1.forEach(function(item,index){
+        if (item == word2[index]) {
+            cnt++;
+        }
+    });
+    return(cnt+" Correct out of "+word1.length);
 }
 
 
