@@ -41,43 +41,59 @@ let c=canvas.getContext('2d');
 //     c.fill();
 // }
 
-function Circle(x,y){
+
+
+function Circle(x,y,dx,dy,radius){
     this.x = x;
     this.y = y;
+    this.dx = dx;
+    this.dy = dy;
+    this.radius = radius;
 
     this.draw = function(){
-        console.log("Test");
+        c.beginPath();
+        c.arc(this.x,this.y,this.radius,0,Math.PI*2,false);
+        c.strokeStyle = "purple";
+        c.stroke();
+        c.fillStyle = `#${Math.random().toString(16).substr(-6)}`
+        c.fill();
+    }
+    this.update = function(){
+        if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
+            this.dx = -this.dx;
+        }
+        if (this.y + this.radius > innerHeight || this.y - this.radius < 0) {
+            this.dy = -this.dy;
+        }
+
+        this.x += this.dx;
+        this.y += this.dy;
+        this.draw();
+
     }
 }
 
-var circle = new Circle(200,200);
-circle.draw();
 
-let x = Math.random() * window.innerWidth;
-let y = Math.random() * window.innerHeight;
-let dx = 50*(Math.random()-0.5);
-let dy = 50*(Math.random() -0.5);
-let radius = 30;
+
+var circleArray = [];
+for(i = 0;i<100;i++){
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * window.innerHeight;
+    let dx = 10 * (Math.random() - 0.5);
+    let dy = 10 * (Math.random() - 0.5);
+    let radius = 30;
+    circleArray.push(new Circle(x,y,dx,dy,radius));
+    // var circle = new Circle(200,200,10,10,30);
+}
+console.log(circleArray);
+
+
 
 function animate() {
     requestAnimationFrame(animate);
     c.clearRect(0,0,innerWidth,innerHeight);
-    c.beginPath();
-    c.arc(x,y, radius, 0, Math.PI * 2, false);
-    c.fillStyle = "blue";
-    c.fill();
-    if(x+radius>innerWidth || x-radius<0){
-        dx = -dx;
+    for (i = 0; i < circleArray.length; i++) {
+        circleArray[i].update(); 
     }
- if(y+radius>innerHeight || y-radius<0){
-        dy = -dy;
-    }
-    
-    x+=dx;
-    y +=dy;
-
-
-  
 }
-
 animate();
