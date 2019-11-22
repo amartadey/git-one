@@ -47,13 +47,19 @@ var mouse = {
 };
 let maxRadius = 40;
 let minRadius = 10;
-var colorArray = ['#ffaa33',"#99ffaa","#00ff00","#4411aa","#ff1100"];
+var colorArray = ['#2c3e50',"#e74c3c","#ecf0f1","#3498db","#2980b9"];
 
 window.addEventListener('mousemove',function(e) {
     
     mouse.x = e.x;
     mouse.y = e.y;
     console.log(mouse);
+});
+
+window.addEventListener('resize',function(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    init();
 });
 
 function Circle(x, y, dx, dy, radius) {
@@ -68,8 +74,6 @@ function Circle(x, y, dx, dy, radius) {
     this.draw = function () {
         c.beginPath();
         c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-        c.strokeStyle = "purple";
-        c.stroke();
         c.fillStyle = this.color;
         c.fill();
     }
@@ -99,21 +103,24 @@ function Circle(x, y, dx, dy, radius) {
 
 
 
-var circleArray = [];
-for (i = 0; i < 100; i++) {
-    let radius = Math.random()* 8+1;
-    let x = Math.random() * (window.innerWidth - radius * 2) + radius;
-    let y = Math.random() * (window.innerHeight - radius * 2) + radius;
-    let dx = 5 * (Math.random() - 0.5);
-    let dy = 5 * (Math.random() - 0.5);
+ var circleArray = [];
 
-    circleArray.push(new Circle(x, y, dx, dy, radius));
-    // var circle = new Circle(200,200,10,10,30);
+function init(){
+    circleArray = [];
+    for (i = 0; i < 100; i++) {
+        let radius = Math.random() * 8 + 1;
+        let x = Math.random() * (window.innerWidth - radius * 2) + radius;
+        let y = Math.random() * (window.innerHeight - radius * 2) + radius;
+        let dx = 5 * (Math.random() - 0.5);
+        let dy = 5 * (Math.random() - 0.5);
+
+        circleArray.push(new Circle(x, y, dx, dy, radius));
+        // var circle = new Circle(200,200,10,10,30);
+    }
+    console.log(circleArray);
+
 }
-console.log(circleArray);
-
-
-
+ animate();
 function animate() {
     requestAnimationFrame(animate);
     c.clearRect(0, 0, innerWidth, innerHeight);
@@ -121,4 +128,6 @@ function animate() {
         circleArray[i].update();
     }
 }
-animate();
+
+init();
+
