@@ -55,7 +55,7 @@ function Circle(x,y,dx,dy,radius){
         c.arc(this.x,this.y,this.radius,0,Math.PI*2,false);
         c.strokeStyle = "purple";
         c.stroke();
-        c.fillStyle = `#${Math.random().toString(16).substr(-6)}`
+        c.fillStyle = `pink`
         c.fill();
     }
     this.update = function(){
@@ -77,11 +77,12 @@ function Circle(x,y,dx,dy,radius){
 
 var circleArray = [];
 for(i = 0;i<100;i++){
-    let x = Math.random() * window.innerWidth;
-    let y = Math.random() * window.innerHeight;
-    let dx = 10 * (Math.random() - 0.5);
-    let dy = 10 * (Math.random() - 0.5);
     let radius = 30;
+    let x = Math.random() * (window.innerWidth-radius*2) + radius;
+    let y = Math.random() * (window.innerHeight - radius * 2) + radius;
+    let dx = 5 * (Math.random() - 0.5);
+    let dy = 5 * (Math.random() - 0.5);
+    
     circleArray.push(new Circle(x,y,dx,dy,radius));
     // var circle = new Circle(200,200,10,10,30);
 }
