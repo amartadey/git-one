@@ -107,7 +107,7 @@ function Circle(x, y, dx, dy, radius) {
 
 function init(){
     circleArray = [];
-    for (i = 0; i < 100; i++) {
+    for (i = 0; i < 500; i++) {
         let radius = Math.random() * 8 + 1;
         let x = Math.random() * (window.innerWidth - radius * 2) + radius;
         let y = Math.random() * (window.innerHeight - radius * 2) + radius;
